@@ -1,0 +1,91 @@
+# 端口
+server:
+  port: 8080
+  tomcat:
+    max-http-form-post-size: 100
+
+jasypt:
+  encryptor:
+    private-key-string: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCtB/IYK8E52CYMZTpyIY9U0HqMewyKnRvSo6s+9VNIn/HSh9+MoBGiADa2MaPKvetS3CD3CgwGq/+LIQ1HQYGchRrSORizOcIp7KBx+Wc1riatV/tcpcuFLC1j6QJ7d2I+T7RA98Sx8X39orqlYFQVysTw/aTawX/yajx0UlTW3rNAY+ykeQ0CBHowtTxKM9nGcxLoQbvbYx1iG9JgAqye7TYejOpviOH+BpD8To2S8zcOSojIhixEfayay0gURv0IKJN2LP86wkpAuAbL+mohUq1qLeWdTEBrIRXjlnrWs1M66w0l/6JwaFnGOqEB6haMzE4JWZULYYpr2yKyoGCRAgMBAAECggEAQxURhs1v3D0wgx27ywO3zeoFmPEbq6G9Z6yMd5wk7cMUvcpvoNVuAKCUlY4pMjDvSvCM1znN78g/CnGF9FoxJb106Iu6R8HcxOQ4T/ehS+54kDvL999PSBIYhuOPUs62B/Jer9FfMJ2veuXb9sGh19EFCWlMwILEV/dX+MDyo1qQaNzbzyyyaXP8XDBRDsvPL6fPxL4r6YHywfcPdBfTc71/cEPksG8ts6um8uAVYbLIDYcsWopjVZY/nUwsz49xBCyRcyPnlEUJedyF8HANfVEO2zlSyRshn/F+rrjD6aKBV/yVWfTEyTSxZrBPl4I4Tv89EG5CwuuGaSagxfQpAQKBgQDXEe7FqXSaGk9xzuPazXy8okCX5pT6545EmqTP7/JtkMSBHh/xw8GPp+JfrEJEAJJl/ISbdsOAbU+9KAXuPmkicFKbodBtBa46wprGBQ8XkR4JQoBFj1SJf7Gj9ozmDycozO2Oy8a1QXKhHUPkbPQ0+w3efwoYdfE67ZodpFNhswKBgQDN9eaYrEL7YyD7951WiK0joq0BVBLK3rwO5+4g9IEEQjhP8jSo1DP+zS495t5ruuuuPsIeodA79jI8Ty+lpYqqCGJTE6muqLMJDiy7KlMpe0NZjXrdSh6edywSz3YMX1eAP5U31pLk0itMDTf2idGcZfrtxTLrpRffumowdJ5qqwKBgF+XZ+JRHDN2aEM0atAQr1WEZGNfqG4Qx4o0lfaaNs1+H+knw5kIohrAyvwtK1LgUjGkWChlVCXb8CoqBODMupwFAqKL/IDImpUhc/t5uiiGZqxE85B3UWK/7+vppNyIdaZL13a1mf9sNI/p2whHaQ+3WoW/P3R5z5uaifqM1EbDAoGAN584JnUnJcLwrnuBx1PkBmKxfFFbPeSHPzNNsSK3ERJdKOINbKbaX+7DlT4bRVbWvVj/jcw/c2Ia0QTFpmOdnivjefIuehffOgvU8rsMeIBsgOvfiZGx0TP3+CCFDfRVqjIBt3HAfAFyZfiP64nuzOERslL2XINafjZW5T0pZz8CgYAJ3UbEMbKdvIuK+uTl54R1Vt6FO9T5bgtHR4luPKoBv1ttvSC6BlalgxA0Ts/AQ9tCsUK2JxisUcVgMjxBVvG0lfq/EHpL0Wmn59SHvNwtHU2qx3Ne6M0nQtneCCfR78OcnqQ7+L+3YCMqYGJHNFSard+dewfKoPnWw0WyGFEWCg==
+
+spring:
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 1000MB
+  datasource:
+    #url: jdbc:mysql://47.93.190.196:3306/blqtxs?useUnicode=true&characterEncoding=utf-8
+    #data-username: qtxsdb
+    #data-password: ENC(O0iLe9TkFd3jiAYhD6mt96/bDYcbZ/ZDydYXaXkk9qrAOiKsFiqxExinBYDO/U6Pik7KX+UAG1FYsJd9spZSPMowypgreYDdRhc535NZqEzX9IATdTERukmQ0SJ6pjpRcEMMru2Z40lh7RHwDb5JQ1AvksmmXDQ6AouW+RqwPfe05K3qQo0dgzja1UXfN0Y0bo0QpemV1+0EoKg528WSIJFUs/dDqMHSn95PyWJAJfGdp1gR5b8I/+VlaAEKBhufn0VSrpFUoi2hLZw4ycmfOEioR365XrkZrNaOVxPjodX2ax1WRMw+baLrPG8DXtXukOKOc+sdGb6BJ7GM+MwlyA==)
+    #data-password: Qwer123DB.
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #type: com.alibaba.druid.pool.DruidDataSource
+    dynamic:
+      primary: master
+      strict: false
+      datasource:
+        master:
+          url: jdbc:mysql://47.93.190.196:3306/blqtxs
+          username: qtxsdb
+          password: Qwer123DB.
+          #driver-class-name: com.mysql.jdbc.Driver
+          drivel-calss-name: com.mysql.cj.jdbc.Driver
+
+  #druid连接池
+  druid:
+    initial-size: 5
+    minIdles: 5
+    maxActive: 20
+    test-on-borrow: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: utf-8
+  mvc:
+    static-path-pattern: /static/**
+
+# mybatis
+#mybatis:
+#  mapper-locations: classpath:mapper/*Mapper.xml
+  #config-location:
+#  configuration:
+#    cache-enabled: true
+  #type-aliases-package: com.base
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# mapper
+mapper:
+  notEmpty: true
+  IDENTITY: MYSQL
+
+
+# 分页
+#pagehelper:
+#  helperDialect: mysql
+#  reasonable: true
+#  supportMethodsArguments: true
+#  params: count=countSql
+#  support-methods-arguments: true
+
+
+#jwt设置
+bl:
+  jwt:
+    secret: 2b86d9d9805011eab75600163e12d07a2b86d9d9805011eab75600163e12d07a
+    exprie: 604800
+    header: authorization
+
+#日志
+logging:
+  file:
+    path: /logs/qtxs/
+  #level:
+   # root: error
+

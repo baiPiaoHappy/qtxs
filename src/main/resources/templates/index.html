@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学智云AI</title>
+    <script type="text/javascript"  src="../static/js/layui/layui.js"></script>
+    <script type="text/javascript"  src="../static/js/vue/vue.min.js"></script>
+    <script type="text/javascript"  src="../static/util/blUtil.js"></script>
+    <link  rel="stylesheet" href="../static/js/layui/css/layui.css">
+</head>
+<body style="background-color: #32c8ff">
+    <form class="layui-form" action="/home/search.do" method="get">
+        <div style="margin-top: 150px;margin-left: 40%">
+            <img src="/static/image/home/search.jpg">
+        </div>
+        <div class="layui-input-block " >
+            <input type="text" id="key" name="key" required  lay-verify="required" placeholder="请输入检索内容" autocomplete="off" class=" layui-input" style="width: 35%;margin-top: 15px;margin-left: 30%" />
+            <button type="button" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="search" style="margin-top: -56px;margin-left:66%;" id="searchButton"><i class="layui-icon">&#xe615;</i>搜索</button>
+        </div>
+    </form>
+</body>
+<script type="text/javascript" src="/static/js/home/index.js"></script>
+</html>

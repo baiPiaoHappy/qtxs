@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询结果</title>
+    <script type="text/javascript"  src="../static/js/layui/layui.js"></script>
+    <script type="text/javascript"  src="../static/js/vue/vue.min.js"></script>
+    <script type="text/javascript"  src="../static/js/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript"  src="../static/util/blUtil.js"></script>
+    <script type="text/javascript"  src="../static/js/jquery.wordexport.js-master/jquery.wordexport.js"></script>
+    <link  rel="stylesheet" href="../static/js/layui/css/layui.css">
+</head>
+<body id="search">
+    <div style="background-color: #32c8ff;height: 70px">
+        <img src="/static/image/home/xiaoAI.jpg" style="width:180px;margin: 10px 10px 10px 30px;float: left;position: absolute">
+        <input type="text" id="key" name="key" required  lay-verify="required" placeholder="" autocomplete="off" class=" layui-input" style="width: 25%;margin-top: 20px;margin-left: 210px;position: absolute" />
+        <button type="button" class="layui-btn layui-btn-primary" lay-submit="" lay-filter="search" style="margin-top: 20px;margin-left:37%;float: left" id="searchButton"><i class="layui-icon">&#xe615;</i>搜索</button>
+    </div>
+    <div id="show"></div>
+
+    <div id="page" style="margin: 0px 0px 0px 90px;"></div>
+
+
+
+</body>
+<script type="text/javascript" src="/static/js/search/index.js"></script>
+</html>
