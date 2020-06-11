@@ -16,8 +16,9 @@ layui.use(['layer',"jquery",'form','laypage'], function() {
             "key": key
         },
         success: function (re) {
-            var list = re.list.list,
-                page = re.list.page,
+            console.log(re);
+            var list = re.data.list,
+                page = re.data.page,
                 show = "";
             list.forEach( x=>{
                 show +="<div id='"+x.id+"' style='margin: 10px 10px 5px 100px;'><a style='font-size: 20px;'><u>"+x.tw_content+"</u></a><p/> <span style='font-size: 15px'>"+x.question+"</span><p/> </div>"
@@ -37,8 +38,9 @@ layui.use(['layer',"jquery",'form','laypage'], function() {
                 "key": key
             },
             success: function (re) {
-                var list = re.list.list,
-                    page = re.list.page,
+                console.log(re);
+                var list = re.data.list,
+                    page = re.data.page,
                     show = "";
                 list.forEach( x=>{
                     show +="<div id='"+x.id+"' style='margin: 10px 10px 5px 100px;'><a style='font-size: 20px;'><u>"+x.tw_content+"</u></a><p/> <span style='font-size: 15px'>"+x.question+"</span><p/> </div>"
@@ -67,8 +69,8 @@ layui.use(['layer',"jquery",'form','laypage'], function() {
                         "from": obj.curr == -1 ? 1:obj.curr *obj.limit
                     },
                     success: function (re) {
-                        var list = re.list.list,
-                            page = re.list.page,
+                        var list = re.data.list,
+                            page = re.data.page,
                             show = "";
                         list.forEach( x=>{
                             show +="<div id='"+x.id+"' style='margin: 10px 10px 5px 100px;'><a style='font-size: 20px;'><u>"+x.tw_content+"</u></a><p/> <span style='font-size: 15px'>"+x.question+"</span><p/> </div>"

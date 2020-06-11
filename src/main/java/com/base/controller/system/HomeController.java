@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @description:前台
@@ -67,7 +69,7 @@ public class HomeController {
     @ResponseBody
     public ApiMsg esAll(QueryObjectElastic queryObjectElastic) {
         // return new ApiMsg(0,"",ElasticSerachUtil.querySearch(queryObjectElastic,client));
-     /*   for(int i=0;i<9999;i++){
+      /*  for(int i=0;i<9999;i++){
             QueryObjectElastic qoe = new QueryObjectElastic();
             Map<String,Object> map = new HashMap<String, Object>();
             map.put("tw_content",queryObjectElastic.getKey());
@@ -79,8 +81,8 @@ public class HomeController {
             ElasticSerachUtil.add(qoe,client);
             System.out.println("第："+i+"插入成功");
         }
-         ApiMsg apiMsg =new ApiMsg(0,"",ElasticSerachUtil.fuzzySearch(queryObjectElastic,client));
-        */
+         ApiMsg apiMsg =new ApiMsg(0,"",ElasticSerachUtil.fuzzySearch(queryObjectElastic,client));*/
+
         return new ApiMsg(0,"",ElasticSerachUtil.fuzzySearch(queryObjectElastic,client));
     }
 
