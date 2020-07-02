@@ -86,6 +86,6 @@ bl:
 logging:
   file:
     path: /logs/qtxs/
-  #level:
-   # root: error
+#  level:
+#    root: debug
 

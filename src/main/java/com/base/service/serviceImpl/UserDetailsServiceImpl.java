@@ -35,6 +35,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         //Collection<? extends GrantedAuthority> authorities;
         //authorities = AuthorityUtils.commaSeparatedStringToAuthorityList(user.getAuthorities());
 
-        return  User.withUsername(user.getUsername()).password(new BCryptPasswordEncoder().encode(user.password)).authorities("/home").build();
+        return  User.withUsername(user.getUsername()).password(new BCryptPasswordEncoder(10).encode(user.password)).authorities("/home").build();
     }
 }

@@ -18,7 +18,8 @@ public class LogConfig {
 
     @Bean
     public void logMethod(){
-        Log.info("______         _  _                          \n" +
+        Log.info("" +
+                "______         _  _                          \n" +
                 "| ___ \\       (_)| |                         \n" +
                 "| |_/ /  __ _  _ | |      ___   _ __    __ _ \n" +
                 "| ___ \\ / _` || || |     / _ \\ | '_ \\  / _` |\n" +

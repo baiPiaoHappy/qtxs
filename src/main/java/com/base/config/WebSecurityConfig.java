@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 /**
  * @description:
@@ -26,6 +27,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -33,48 +35,64 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(   "/",
-                        "/home/index.*",
+                        /*"/home/index.*",*/
                         "/login/**.*",
-                        "/login/login",
-                        /*"/**.*",*/
                         "/error"
                         ).permitAll()
-                .antMatchers("/user/**").hasRole("USER")
-                .anyRequest().authenticated()
+                /*.antMatchers("/user/**").hasRole("USER")
+                .anyRequest().authenticated()*/
                 .and()
                 .formLogin()
                 .loginPage("/login/login.do")/*.defaultSuccessUrl("/home/userIndex.do")*/
                 .loginProcessingUrl("/login/process")
                 .successForwardUrl("/login/success.do")
-                .failureForwardUrl("/login/failure.do")
+               /* .failureForwardUrl("/login/failure.do")*/
                 .and()
-                .logout().logoutSuccessUrl("/login/login.do")
+                .logout().logoutSuccessUrl("/home/index.do")
                 .and()
-                .headers().frameOptions().disable();
+                .headers().frameOptions().disable()
+                .and()
+                .rememberMe()
+                .rememberMeParameter("remember")
+                .alwaysRemember(true)
+                .tokenValiditySeconds(300);
+               /* .and()
+                .exceptionHandling()
+                .accessDeniedHandler(getAccessDeniedHandler());*/
     }
 
+   /* @Bean
+    public AccessDeniedHandler getAccessDeniedHandler() {
+        return new AccessDeniedHandlerConfig();
+    }*/
 
     @Bean
     public static PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+        return new BCryptPasswordEncoder(10);
     }
 
-/*    @Bean
+/*
+    @Bean
     @Override
     public UserDetailsService userDetailsService(){
         UserDetails user = User.builder()
-                            .username("user")
+                            .username("username")
                             .password("possword")
-                            .roles("admin")
                             .build();
         return new InMemoryUserDetailsManager(user);
-    }*/
+    }
+*/
 
-    /*@Override
+    @Override
+    public UserDetailsService userDetailsServiceBean() throws Exception {
+        return super.userDetailsServiceBean();
+    }
+
+/* @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .inMemoryAuthentication()
-                .passwordEncoder()
+                .passwordEncoder();
 
     }*/
 
@@ -83,6 +101,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers("/static/**","/css/**","/favicon.ico");
         super.configure(web);
     }
+
+
+
 
 
     /*public DaoAuthenticationProvider daoAuthenticationProvider(){

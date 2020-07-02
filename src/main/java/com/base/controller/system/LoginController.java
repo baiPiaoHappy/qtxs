@@ -16,6 +16,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @description: 登录相关
  * @author: 小猴子
@@ -80,7 +83,7 @@ public class LoginController {
     }
 
     @PostMapping("/failure.do")
-    public String failure() {
+    public String failure(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("===========登录失败");
         //SysUser user = (SysUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println("===========登录失败");
@@ -96,14 +99,10 @@ public class LoginController {
         System.out.println("当前登录为:"+username+password);
     }
 
-    /**
-     * 登出
-     * @return
-     */
-    @RequestMapping("/loginout")
+ /*   @RequestMapping("/logout")
     public String loginOut(){
 
-        return "login";
-    }
+        return "index";
+    }*/
 
 }

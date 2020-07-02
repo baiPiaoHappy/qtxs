@@ -6,6 +6,7 @@ import com.base.bean.QueryObjectElastic;
 import com.base.utils.DocumentUtil;
 import com.base.utils.ElasticSerachUtil;
 import com.base.utils.RedisUtil;
+import com.base.utils.XlsxUtil;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -98,6 +99,17 @@ public class HomeController {
         }
         return request;
     }
+
+    @RequestMapping("/testLoad1.do")
+    @ResponseBody
+    public ApiMsg testLoad1(Integer zyType,MultipartFile file) throws Exception {
+        String path ="";
+        if(zyType == 1){
+           path = XlsxUtil.showWordHtml(file.getInputStream());
+        }
+        return new ApiMsg(1,"参数错误",path);
+    }
+
 
 
 }
