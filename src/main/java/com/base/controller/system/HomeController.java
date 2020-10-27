@@ -3,10 +3,7 @@ package com.base.controller.system;
 
 import com.base.bean.ApiMsg;
 import com.base.bean.QueryObjectElastic;
-import com.base.utils.DocumentUtil;
-import com.base.utils.ElasticSerachUtil;
-import com.base.utils.RedisUtil;
-import com.base.utils.XlsxUtil;
+import com.base.utils.*;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +34,9 @@ public class HomeController {
         //全文检索首页
         // return "index";
         //word首页
+
+        //Runtime.getRuntime().addShutdownHook();
+
         return "index";
     }
 
@@ -105,7 +105,8 @@ public class HomeController {
     public ApiMsg testLoad1(Integer zyType,MultipartFile file) throws Exception {
         String path ="";
         if(zyType == 1){
-           path = XlsxUtil.showWordHtml(file.getInputStream());
+            YoungWordUtil youngWordUtil = new YoungWordUtil();
+           path = youngWordUtil.showWordHtml(file.getInputStream());
         }
         return new ApiMsg(1,"参数错误",path);
     }
